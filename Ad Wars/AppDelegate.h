@@ -7,9 +7,31 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
+
+// Preferred method for testing for Game Center
+
+@interface AppDelegate : UIResponder <UIApplicationDelegate> {
+// CLLocationManager *locationManager;
+}
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) NSMutableArray *inventory;
+@property (strong, nonatomic) NSMutableArray *players;
+@property (strong, nonatomic) NSMutableArray *ads;
+//@property (nonatomic) CLLocationCoordinate2D currentLocation;
+@property (retain,readwrite) NSString * currentPlayerID;
 
+
+-(void) getAds:(CLLocationCoordinate2D)location;
+-(void) setCredentials;
+-(void) getInventory;
+-(void) getLeaderboard;
+-(void) reportScore:(int)score withCategory:(NSString*)category;
+-(void) checkReporterAchievement:(int)adsFound;
+-(void) checkVerifiedAchievement:(int)adsVerified;
+-(void) annoying;
+-(void) pointsOnTheBoard;
+    
 @end
